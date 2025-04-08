@@ -9,8 +9,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={styles.layout}>
         <header className={styles.header}>
           <nav>
-            <Link href="/">Home</Link> |<Link href="/editor">Editor</Link> |
-            <Link href="/dashboard">My Invitations</Link>
+            <Link href="/">Home</Link> |<Link href="/main/editor">Editor</Link>{' '}
+            |<Link href="/main/dashboard">My Invitations</Link>
           </nav>
         </header>
         <main className={styles.main}>{children}</main>

@@ -1,16 +1,35 @@
 'use client'
 
-import type { EditorProps } from './Editor.types'
+import { Player } from '@remotion/player'
+import { EditorComposition } from '../EditorComposition/EditorComposition'
+import { EditorControls } from '../EditorControls/EditorControls'
+import { useAtomValue } from 'jotai'
+import { currentVideoAtom } from '@/src/atoms/editor'
+import { availableVideos } from '@/src/data/videos'
 import styles from './Editor-styles.module.css'
-import { useState } from 'react'
 
-export function Editor({ value }: EditorProps) {
-  const [state, setState] = useState()
+export function Editor() {
+  const currentVideo = useAtomValue(currentVideoAtom)
+  const video = availableVideos[currentVideo]
 
   return (
     <div className={styles['Editor-container']}>
-      <h1>Editor</h1>
-      <h2>{value}</h2>
+      <div className={styles['Editor-player']}>
+        <Player
+          component={EditorComposition}
+          durationInFrames={video.duration * 30}
+          compositionWidth={640}
+          compositionHeight={360}
+          fps={30}
+          loop={true}
+          controls
+          autoPlay
+        />
+      </div>
+
+      <div className={styles['Editor-controls']}>
+        <EditorControls />
+      </div>
     </div>
   )
 }

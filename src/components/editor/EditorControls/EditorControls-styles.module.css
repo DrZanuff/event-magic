@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.videoInfo {
+  text-align: center;
+  max-width: 300px;
+}
+
+.videoSelector {
+  display: flex;
+  gap: 10px;
+}
+
+.textEditorsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.backgroundControls {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.backgroundControls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #fff;
+}

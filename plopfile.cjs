@@ -1,4 +1,4 @@
-const componentGenerator = require('./plop/component-generator.cjs')
+const componentGenerator = require('drzanuff-plop-generator')
 
 module.exports = function (plop) {
   componentGenerator(plop)

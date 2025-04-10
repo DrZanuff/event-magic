@@ -1,4 +1,17 @@
 .Editor-container {
   display: flex;
-  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.Editor-player {
+  flex-shrink: 0;
+  width: 640px;
+  height: 480px;
+}
+
+.Editor-controls {
+  flex: 1;
+  max-width: 400px;
 }

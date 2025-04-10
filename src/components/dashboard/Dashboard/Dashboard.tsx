@@ -7,7 +7,6 @@ export function Dashboard({ value }: DashboardProps) {
   return (
     <div className={styles['Dashboard-container']}>
       <h1>Dashboard</h1>
-      <h2>{value}</h2>
     </div>
   )
 }

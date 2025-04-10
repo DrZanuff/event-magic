@@ -11,7 +11,7 @@ export default function EditorPage() {
         display: 'flex',
       }}>
       Editor Page
-      <Editor value="client" />
+      <Editor />
     </div>
   )
 }

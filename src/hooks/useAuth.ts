@@ -12,7 +12,7 @@ export type AuthUser = {
 }
 
 export const useAuth = () => {
-  const [user, setUser] = useState<AuthUser | null>(null)
+  const [user, setUser] = useState<AuthUser | null>()
   const [loading, setLoading] = useState(true)
 
   const handleLogin = async () => {

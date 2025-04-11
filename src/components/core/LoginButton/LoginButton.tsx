@@ -4,7 +4,11 @@ import { useAuth } from '@/src/hooks/useAuth'
 
 import styles from './LoginButton-styles.module.css'
 
-export function LoginButton() {
+export function LoginButton({
+  customMessage = 'Login with Google',
+}: {
+  customMessage?: string
+}) {
   const { user, login, logout, loading } = useAuth()
 
   if (loading) return <p>Carregando...</p>
@@ -18,7 +22,7 @@ export function LoginButton() {
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
-        <button onClick={login}>Login com Google</button>
+        <button onClick={login}>{customMessage}</button>
       )}
     </div>
   )

@@ -11,7 +11,7 @@ export default function DashboardPage() {
         display: 'flex',
       }}>
       Dashboard Page
-      <Dashboard value="client" />
+      <Dashboard />
     </div>
   )
 }

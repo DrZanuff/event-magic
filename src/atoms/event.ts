@@ -129,3 +129,5 @@ export const callToActionAtom = atom<TextElement>({
 
 export const backgroundOpacityAtom = atom<number>(0.5)
 export const backgroundColorAtom = atom<string>('#000000')
+
+export const currentEditingAtom = atom<string | null>(null)

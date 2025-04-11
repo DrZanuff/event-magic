@@ -1,8 +1,9 @@
 'use client'
 
 import { Player } from '@remotion/player'
-import { EditorComposition } from '../EditorComposition/EditorComposition'
-import { EditorControls } from '../EditorControls/EditorControls'
+import { EditorComposition } from '@/src/components/editor/EditorComposition/EditorComposition'
+import { EditorControls } from '@/src/components/editor/EditorControls/EditorControls'
+import { EditorRegisteredUserArea } from '@/src/components/editor/EditorRegisteredUserArea'
 import { useAtomValue } from 'jotai'
 import { currentVideoAtom } from '@/src/atoms/editor'
 import { availableVideos } from '@/src/data/videos'
@@ -29,6 +30,7 @@ export function Editor() {
 
       <div className={styles['Editor-controls']}>
         <EditorControls />
+        <EditorRegisteredUserArea />
       </div>
     </div>
   )

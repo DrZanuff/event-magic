@@ -3,6 +3,7 @@ import styles from './layout.module.css'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { LoginButton } from '@/src/components/core/LoginButton'
+import { DashboardHeaderLink } from '@/src/components/core/DashboardHeaderLink'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -10,8 +11,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={styles.layout}>
         <header className={styles.header}>
           <nav>
-            <Link href="/">Home</Link> |<Link href="/main/editor">Editor</Link>{' '}
-            |<Link href="/main/dashboard">My Invitations</Link>
+            <Link href="/">Home</Link>
+            <span>|</span>
+            <Link href="/main/editor">Editor</Link>
+            <DashboardHeaderLink />
           </nav>
 
           <LoginButton />

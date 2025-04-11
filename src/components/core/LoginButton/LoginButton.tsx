@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuth } from '@/src/hooks/useAuth'
-
+import Image from 'next/image'
 import styles from './LoginButton-styles.module.css'
 
 export function LoginButton({
@@ -17,7 +17,12 @@ export function LoginButton({
     <div className={styles.container}>
       {user ? (
         <div>
-          <img src={user.photoURL ?? ''} alt="avatar" width={32} />
+          <Image
+            src={user.photoURL ?? ''}
+            alt="avatar"
+            width={64}
+            height={64}
+          />
           <span>{user.name}</span>
           <button onClick={logout}>Logout</button>
         </div>

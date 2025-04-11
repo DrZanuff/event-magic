@@ -1,8 +1,7 @@
 // src/app/api/events/[id]/route.ts
 
 import { NextRequest, NextResponse } from 'next/server'
-import { MongoClient } from 'mongodb'
-import { ObjectId } from 'mongodb'
+import { MongoClient, ObjectId } from 'mongodb'
 
 const uri = process.env.MONGODB_URI!
 
@@ -16,24 +15,22 @@ if (!clientPromise) {
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  console.log('DBG: HERE')
   try {
-    const id = params.id
+    const { id } = await params
     const body = await req.json()
 
-    const mongoClient = await clientPromise
+    const mongoClient = await clientPromise!
+    const db = mongoClient.db('eventmagic')
+    const events = db.collection('events')
 
-    const db = mongoClient?.db('eventmagic')
-    const events = db?.collection('events')
-
-    const result = await events?.updateOne(
+    const result = await events.updateOne(
       { _id: new ObjectId(id) },
       { $set: body }
     )
 
-    return NextResponse.json({ success: result?.modifiedCount === 1 })
+    return NextResponse.json({ success: result.modifiedCount === 1 })
   } catch (err) {
     console.error('Update error:', err)
     return NextResponse.json(

@@ -71,7 +71,6 @@ export function EditorRegisteredUserArea() {
       if (data.success) {
         alert('Event saved!')
         setSaveVideoId(data.insertedId)
-        data.insertedId
       } else {
         alert('Failed to save event.')
       }
@@ -87,8 +86,8 @@ export function EditorRegisteredUserArea() {
     return (
       <div className={styles['no-user']}>
         <h3>
-          You're not registered. Please Sign In or create an account to save a
-          Event
+          You{`&apos;`}re not registered. Please Sign In or create an account to
+          save a Event
         </h3>
 
         <LoginButton customMessage="Create an account with Google" />

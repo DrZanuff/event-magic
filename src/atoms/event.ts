@@ -27,7 +27,7 @@ export type TextElement = {
 
 export const titleAtom = atom<TextElement>({
   text: 'Party',
-  fontSize: 20,
+  fontSize: 4,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
   backgroundColor: 'transparent',
@@ -44,14 +44,14 @@ export const titleAtom = atom<TextElement>({
 
 export const subTitleAtom = atom<TextElement>({
   text: 'Hard!',
-  fontSize: 20,
+  fontSize: 3,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 120,
+  y: 200,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
   shadowColor: '#000000',
@@ -61,14 +61,14 @@ export const subTitleAtom = atom<TextElement>({
 
 export const messageAtom = atom<TextElement>({
   text: 'You are invited to something amazing!',
-  fontSize: 20,
+  fontSize: 2,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 180,
+  y: 280,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
   shadowColor: '#000000',
@@ -78,14 +78,14 @@ export const messageAtom = atom<TextElement>({
 
 export const locationAtom = atom<TextElement>({
   text: '1234 Main St, Springfield, USA',
-  fontSize: 18,
+  fontSize: 2,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 210,
+  y: 310,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
   shadowColor: 'transparent',
@@ -95,14 +95,14 @@ export const locationAtom = atom<TextElement>({
 
 export const dateTimeAtom = atom<TextElement>({
   text: 'April 21, 2025 at 7:00 PM',
-  fontSize: 18,
+  fontSize: 2,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 240,
+  y: 340,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
   shadowColor: 'transparent',
@@ -111,15 +111,15 @@ export const dateTimeAtom = atom<TextElement>({
 })
 
 export const callToActionAtom = atom<TextElement>({
-  text: 'Don’t miss it!',
-  fontSize: 18,
+  text: 'Don`t miss it!',
+  fontSize: 1,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 270,
+  y: 370,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
   shadowColor: 'transparent',

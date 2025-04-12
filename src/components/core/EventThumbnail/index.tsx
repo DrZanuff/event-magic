@@ -1,0 +1,1 @@
+export { EventThumbnail } from './EventThumbnail'

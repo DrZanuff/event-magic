@@ -2,3 +2,17 @@
   display: flex;
   flex-direction: column;
 }
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.item-container {
+  font-size: 0.5px;
+}
+
+.title-li {
+  font-size: 20px;
+}

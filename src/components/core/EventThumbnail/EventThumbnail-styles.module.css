@@ -1,0 +1,9 @@
+.EventThumbnail-container {
+  display: flex;
+  cursor: pointer;
+  transition: filter 0.2s ease-in-out;
+}
+
+.EventThumbnail-container:hover {
+  filter: brightness(0.8);
+}

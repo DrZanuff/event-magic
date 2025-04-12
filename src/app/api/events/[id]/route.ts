@@ -39,3 +39,26 @@ export async function PUT(
     )
   }
 }
+
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params
+
+    const mongoClient = await clientPromise!
+    const db = mongoClient.db('eventmagic')
+    const events = db.collection('events')
+
+    const result = await events.deleteOne({ _id: new ObjectId(id) })
+
+    return NextResponse.json({ success: result.deletedCount === 1 })
+  } catch (err) {
+    console.error('Delete error:', err)
+    return NextResponse.json(
+      { success: false, error: 'Failed to delete event' },
+      { status: 500 }
+    )
+  }
+}

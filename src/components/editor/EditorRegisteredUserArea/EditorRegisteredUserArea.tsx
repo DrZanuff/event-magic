@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import {
   backgroundColorAtom,
   backgroundOpacityAtom,
@@ -20,6 +21,7 @@ import styles from './EditorRegisteredUserArea-styles.module.css'
 
 export function EditorRegisteredUserArea() {
   const { user } = useAuth()
+  const router = useRouter()
   const backgroundColor = useAtomValue(backgroundColorAtom)
   const backgroundOpacity = useAtomValue(backgroundOpacityAtom)
   const callToAction = useAtomValue(callToActionAtom)
@@ -82,6 +84,35 @@ export function EditorRegisteredUserArea() {
     }
   }
 
+  const handleDeleteEvent = async () => {
+    if (!savedVideoId) return
+
+    const confirmDelete = confirm('Are you sure you want to delete this event?')
+    if (!confirmDelete) return
+
+    setIsLoading(true)
+    try {
+      const res = await fetch(`/api/events/${savedVideoId}`, {
+        method: 'DELETE',
+      })
+
+      const data = await res.json()
+      if (data.success) {
+        alert('Event deleted!')
+        setSaveVideoId(null)
+        setEventName('')
+      } else {
+        alert('Failed to delete event.')
+      }
+    } catch (err) {
+      console.error('Delete error:', err)
+      alert('Unexpected error occurred while deleting')
+    } finally {
+      setIsLoading(false)
+      router.push('/main/dashboard')
+    }
+  }
+
   if (!user) {
     return (
       <div className={styles['no-user']}>
@@ -106,6 +137,10 @@ export function EditorRegisteredUserArea() {
         disabled={!eventName.length || isLoading}
         onClick={handleSaveEvent}>
         Save
+      </button>
+
+      <button disabled={isLoading} onClick={handleDeleteEvent}>
+        Delete
       </button>
     </div>
   )

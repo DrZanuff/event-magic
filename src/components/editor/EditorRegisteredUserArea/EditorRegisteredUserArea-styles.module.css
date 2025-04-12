@@ -6,3 +6,33 @@
   display: flex;
   flex-direction: column;
 }
+
+.shareBox {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.link {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #0070f3;
+  word-break: break-all;
+  text-decoration: underline;
+}
+
+.copyButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.copyButton:hover {
+  background-color: #005bb5;
+}

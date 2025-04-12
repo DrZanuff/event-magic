@@ -139,9 +139,35 @@ export function EditorRegisteredUserArea() {
         Save
       </button>
 
-      <button disabled={isLoading} onClick={handleDeleteEvent}>
-        Delete
-      </button>
+      {savedVideoId && (
+        <>
+          <div className={styles.shareBox}>
+            <p>View the event:</p>
+            <a
+              href={`/main/view?id=${savedVideoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}>
+              {`${window.location.origin}/main/view?id=${savedVideoId}`}
+            </a>
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  `${window.location.origin}/main/view?id=${savedVideoId}`
+                )
+                alert('Link copied to clipboard!')
+              }}
+              className={styles.copyButton}>
+              Copy link
+            </button>
+          </div>
+
+          <button disabled={isLoading} onClick={handleDeleteEvent}>
+            Delete
+          </button>
+        </>
+      )}
     </div>
   )
 }

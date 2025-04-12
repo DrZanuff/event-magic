@@ -5,10 +5,32 @@
 }
 
 .header {
-  padding: 1rem;
-  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-a);
   text-align: center;
-  color: #000;
+  color: var(--ui-white);
+  padding-left: 5%;
+  padding-right: 5%;
+
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: 5rem;
+
+  nav a {
+    padding: 0.5rem 1.2rem;
+    color: var(--ui-gray200);
+
+    &:hover {
+      color: var(--ui-white);
+      text-decoration: underline;
+    }
+  }
+
+  strong {
+    font-size: 20px;
+  }
 }
 
 .main {

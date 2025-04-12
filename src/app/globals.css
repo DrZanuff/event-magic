@@ -1,13 +1,32 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background-a: black;
+  --background-b2: #1d283880;
+  --background-b3: #1d283840;
+  --background-b1: #1d2838;
+  --paragraphs: #c9c9c9;
+  --accent-a1: #ff0357;
+  --accent-a2: #0b82d8;
+  --semi-stroke: #ffffff1f;
+  --link: #d8dfe9cc;
+  --border: #182233;
+  --magenta-transaprent: #ff035778;
+  --ui-white: white;
+  --ui-primary100: #f4ebff;
+  --ui-primary600: #7f56d9;
+  --ui-primary700: #6941c6;
+  --ui-primary800: #53389e;
+  --ui-gray50: #f9fafb;
+  --ui-gray100: #f2f4f7;
+  --ui-gray200: #eaecf0;
+  --ui-gray300: #d0d5dd;
+  --ui-gray400: #98a2b3;
+  --ui-gray600: #475467;
+  --ui-gray700: #344054;
+  --ui-gray800: #1d2939;
+  --ui-gray900: #101828;
+  --grey: #d8dfe9db;
+  --lite-grey: #e4e2df;
+  --btn-border-radius: 15px;
 }
 
 html,

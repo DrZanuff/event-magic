@@ -12,8 +12,7 @@ export function DashboardHeaderLink() {
 
   return (
     <>
-      <span>|</span>
-      <Link href="/main/dashboard">My Invitations</Link>
+      <Link href="/main/dashboard">Invitations</Link>
     </>
   )
 }

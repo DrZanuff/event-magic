@@ -3,6 +3,7 @@
 import { useAuth } from '@/src/hooks/useAuth'
 import Image from 'next/image'
 import styles from './LoginButton-styles.module.css'
+import buttons from '../../../styles/buttons.module.css'
 
 export function LoginButton({
   customMessage = 'Login with Google',
@@ -16,18 +17,22 @@ export function LoginButton({
   return (
     <div className={styles.container}>
       {user ? (
-        <div>
+        <div className={styles['avatar-container']}>
           <Image
             src={user.photoURL ?? ''}
             alt="avatar"
             width={64}
             height={64}
+            className={styles.avatar}
           />
-          <span>{user.name}</span>
-          <button onClick={logout}>Logout</button>
+          <button className={buttons['button-purple-outline']} onClick={logout}>
+            Logout
+          </button>
         </div>
       ) : (
-        <button onClick={login}>{customMessage}</button>
+        <button className={buttons['button-outline-magenta']} onClick={login}>
+          {customMessage}
+        </button>
       )}
     </div>
   )

@@ -1,3 +1,21 @@
 .container {
   display: flex;
+
+  button {
+    height: 48px;
+    min-width: 100px;
+  }
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--ui-primary600);
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }

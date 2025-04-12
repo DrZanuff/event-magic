@@ -10,6 +10,7 @@
     "plop": "plop"
   },
   "dependencies": {
+    "@remotion/google-fonts": "^4.0.286",
     "@remotion/player": "^4.0.286",
     "firebase": "^11.6.0",
     "jotai": "^2.12.2",

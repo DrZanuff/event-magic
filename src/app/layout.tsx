@@ -4,15 +4,26 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 import { LoginButton } from '@/src/components/core/LoginButton'
 import { DashboardHeaderLink } from '@/src/components/core/DashboardHeaderLink'
+import { Roboto } from 'next/font/google'
+
+const roboto = Roboto({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.className}>
       <body className={styles.layout}>
         <header className={styles.header}>
+          <Link href="/">
+            <strong>Event Magic ✨</strong>
+          </Link>
+
           <nav>
             <Link href="/">Home</Link>
-            <span>|</span>
             <Link href="/main/editor">Editor</Link>
             <DashboardHeaderLink />
           </nav>

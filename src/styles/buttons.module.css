@@ -1,0 +1,105 @@
+@layer components;
+
+.button {
+  border-radius: var(--btn-border-radius);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.button-pink {
+  border-radius: var(--btn-border-radius);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  background-color: var(--accent-a1);
+  color: var(--ui-white);
+  border: none;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.button-blue {
+  border-radius: var(--btn-border-radius);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  background-color: var(--accent-a2);
+  color: var(--ui-white);
+  border: none;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.button-purple {
+  border-radius: var(--btn-border-radius);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  background-color: var(--ui-primary600);
+  color: var(--ui-white);
+  border: none;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.button-purple-outline {
+  border-radius: var(--btn-border-radius);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: transparent;
+  color: var(--ui-primary600);
+  border: 2px solid var(--ui-primary600);
+
+  &:hover {
+    background-color: var(--ui-primary600);
+    color: var(--ui-white);
+  }
+}
+
+.button-white {
+  border-radius: var(--btn-border-radius);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  background-color: var(--ui-white);
+  color: var(--ui-gray900);
+  border: none;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.button-outline-magenta {
+  border-radius: var(--btn-border-radius);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: transparent;
+  color: var(--accent-a1);
+  border: 2px solid var(--magenta-transaprent);
+
+  &:hover {
+    background-color: var(--accent-a1);
+    color: var(--ui-white);
+  }
+}

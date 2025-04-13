@@ -3,6 +3,7 @@
 import { useAtom } from 'jotai'
 import { FadeAnimation, TextElement } from '@/src/atoms/event'
 import type { TextElementEditorProps } from './TextElementEditor.types'
+import inputStyle from '../../../styles/input.module.css'
 import styles from './TextElementEditor-styles.module.css'
 
 const fadeAnimations: FadeAnimation[] = [
@@ -28,35 +29,42 @@ export function TextElementEditor({ label, atom }: TextElementEditorProps) {
     <div className={styles.container}>
       <h3>{label}</h3>
 
-      <label>
-        Text:
-        <input
-          type="text"
+      <label className={styles.areaInput}>
+        <span>Text</span>
+        <textarea
+          className={inputStyle.input}
           value={textElement.text}
           onChange={(e) => handleChange('text', e.target.value)}
         />
       </label>
 
-      <label>
-        Font Size:
-        <input
-          type="number"
-          value={textElement.fontSize}
-          onChange={(e) => handleChange('fontSize', Number(e.target.value))}
-        />
-      </label>
+      <h3>Typography</h3>
+
+      <div className={styles.rowCompact}>
+        <label>
+          <span>Size</span>
+          <input
+            className={inputStyle.input}
+            type="number"
+            step="0.1"
+            value={textElement.fontSize}
+            onChange={(e) => handleChange('fontSize', Number(e.target.value))}
+          />
+        </label>
+
+        <label>
+          <span>Color</span>
+          <input
+            className={inputStyle.input}
+            type="color"
+            value={textElement.fontColor}
+            onChange={(e) => handleChange('fontColor', e.target.value)}
+          />
+        </label>
+      </div>
 
       <label>
-        Font Color:
-        <input
-          type="color"
-          value={textElement.fontColor}
-          onChange={(e) => handleChange('fontColor', e.target.value)}
-        />
-      </label>
-
-      <label>
-        Background Color:
+        Background:
         <input
           type="color"
           value={textElement.backgroundColor}

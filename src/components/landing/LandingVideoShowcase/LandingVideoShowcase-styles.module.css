@@ -1,0 +1,6 @@
+.LandingVideoShowcaseContainer {
+  border-radius: var(--btn-border-radius);
+  overflow: hidden;
+  margin-top: 2rem;
+  box-shadow: 0 0 20px #0004;
+}

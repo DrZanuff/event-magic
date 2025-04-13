@@ -1,0 +1,33 @@
+.ColorPickerInputContainer {
+  display: flex;
+  position: relative;
+}
+
+.colorPickerModal {
+  position: absolute;
+  right: 2em;
+  top: 2em;
+
+  .w-color-sketch {
+    background-color: var(--background-b2) !important;
+  }
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0.625em;
+}
+
+.color {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 1px solid var(--semi-stroke);
+  cursor: pointer;
+  transition: filter 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}

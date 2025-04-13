@@ -3,6 +3,7 @@
 import { useAtom } from 'jotai'
 import { FadeAnimation, TextElement } from '@/src/atoms/event'
 import type { TextElementEditorProps } from './TextElementEditor.types'
+import { ColorPickerInput } from '@/src/components/core/ColorPickerInput'
 import inputStyle from '../../../styles/input.module.css'
 import styles from './TextElementEditor-styles.module.css'
 
@@ -52,15 +53,11 @@ export function TextElementEditor({ label, atom }: TextElementEditorProps) {
           />
         </label>
 
-        <label>
-          <span>Color</span>
-          <input
-            className={inputStyle.input}
-            type="color"
-            value={textElement.fontColor}
-            onChange={(e) => handleChange('fontColor', e.target.value)}
-          />
-        </label>
+        <ColorPickerInput
+          label="Color"
+          value={textElement.fontColor}
+          onChange={(newColor) => handleChange('fontColor', newColor)}
+        />
       </div>
 
       <label>

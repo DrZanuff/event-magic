@@ -12,6 +12,7 @@
   "dependencies": {
     "@remotion/google-fonts": "^4.0.286",
     "@remotion/player": "^4.0.286",
+    "@uiw/react-color-sketch": "^2.4.5",
     "firebase": "^11.6.0",
     "jotai": "^2.12.2",
     "mongodb": "^6.15.0",

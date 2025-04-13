@@ -11,3 +11,13 @@ export type VideoMetadata = {
 export type AvailableVideosMap = Record<AvailableVideosId, VideoMetadata>
 
 export const currentVideoAtom = atom<AvailableVideosId>(1)
+
+export type LayerElements =
+  | 'Title'
+  | 'Subtitle'
+  | 'Message'
+  | 'Location'
+  | 'DateTime'
+  | 'Info'
+
+export const currentSelectedLayerElementAtom = atom<LayerElements | null>(null)

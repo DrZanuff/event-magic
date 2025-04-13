@@ -1,0 +1,13 @@
+.input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--semi-stroke);
+  border-radius: var(--btn-border-radius);
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--semi-stroke-hilight);
+}

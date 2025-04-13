@@ -1,7 +1,9 @@
 'use client'
 
-import { VideoMetadata } from '@/src/atoms/editor'
-import { TextElement } from '@/src/atoms/event'
+import { useAtomValue } from 'jotai'
+import { currentSelectedLayerElementAtom } from '@/src/atoms/editor'
+import type { VideoMetadata } from '@/src/atoms/editor'
+import type { TextElement } from '@/src/atoms/event'
 import {
   AbsoluteFill,
   Sequence,
@@ -24,6 +26,8 @@ export function CompositionRenderer({
   backgroundOpacity,
   elements,
 }: CompositionRendererProps) {
+  const currentSelectedElement = useAtomValue(currentSelectedLayerElementAtom)
+
   const frame = useCurrentFrame()
 
   const translateY = interpolate(frame, [0, 30], [-300, -100], {
@@ -34,27 +38,32 @@ export function CompositionRenderer({
     extrapolateRight: 'clamp',
   })
 
-  const renderTextElement = (el: TextElement, index: number) => (
-    <div
-      key={index}
-      style={{
-        position: 'absolute',
-        top: el.y,
-        left: el.x,
-        transform: `rotate(${el.angle}deg)`,
-        fontSize: `${el.fontSize}em`,
-        fontFamily: el.fontName,
-        color: el.fontColor,
-        backgroundColor: el.backgroundColor,
-        borderRadius: el.borderRadius,
-        boxShadow: `${el.shadowOffset}px ${el.shadowOffset}px ${el.shadowBlur}px ${el.shadowColor}`,
-        padding: '8px 16px',
-        whiteSpace: 'pre-wrap',
-        maxWidth: '90%',
-      }}>
-      {el.text}
-    </div>
-  )
+  const renderTextElement = (el: TextElement, index: number) => {
+    const isSelected = el.layer === currentSelectedElement
+
+    return (
+      <div
+        key={index}
+        style={{
+          position: 'absolute',
+          top: el.y,
+          left: el.x,
+          transform: `rotate(${el.angle}deg)`,
+          fontSize: `${el.fontSize}em`,
+          fontFamily: el.fontName,
+          color: el.fontColor,
+          backgroundColor: el.backgroundColor,
+          borderRadius: el.borderRadius,
+          boxShadow: `${el.shadowOffset}px ${el.shadowOffset}px ${el.shadowBlur}px ${el.shadowColor}`,
+          padding: '8px 16px',
+          whiteSpace: 'pre-wrap',
+          maxWidth: '90%',
+          border: isSelected ? '2px dotted red' : 'none',
+        }}>
+        {el.text}
+      </div>
+    )
+  }
 
   return (
     <Sequence from={0} durationInFrames={video.duration * 30}>

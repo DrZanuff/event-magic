@@ -1,0 +1,30 @@
+.element {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.6rem;
+  padding: 0.6rem 0 0.6rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(0.8);
+    background-color: var(--semi-stroke);
+  }
+}
+
+.elementSelected {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.6rem;
+  padding: 0.6rem 0 0.6rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--blue-transaprent);
+  color: var(--accent-a2);
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}

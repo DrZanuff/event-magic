@@ -7,6 +7,7 @@ import { EditorRegisteredUserArea } from '@/src/components/editor/EditorRegister
 import { useAtomValue } from 'jotai'
 import { currentVideoAtom } from '@/src/atoms/editor'
 import { availableVideos } from '@/src/data/videos'
+import { EditorLayerElements } from '@/src/components/editor/EditorLayerElements'
 import styles from './Editor-styles.module.css'
 
 export function Editor() {
@@ -15,12 +16,16 @@ export function Editor() {
 
   return (
     <div className={styles['Editor-container']}>
+      <div className={styles['Editor-controls']}>
+        <EditorLayerElements />
+        <EditorRegisteredUserArea />
+      </div>
       <div className={styles['Editor-player']}>
         <Player
           component={EditorComposition}
           durationInFrames={video.duration * 30}
-          compositionWidth={640}
-          compositionHeight={360}
+          compositionWidth={1200}
+          compositionHeight={675}
           fps={30}
           loop={true}
           controls
@@ -30,7 +35,6 @@ export function Editor() {
 
       <div className={styles['Editor-controls']}>
         <EditorControls />
-        <EditorRegisteredUserArea />
       </div>
     </div>
   )

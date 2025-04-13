@@ -1,16 +1,9 @@
 import { Editor } from '@/src/components/editor/Editor'
+import styles from './editor-page.module.css'
 
 export default function EditorPage() {
   return (
-    <div
-      style={{
-        width: '80%',
-        height: '70vh',
-        border: '1px dashed gray',
-        flexDirection: 'column',
-        display: 'flex',
-      }}>
-      Editor Page
+    <div className={styles.editorContainer}>
       <Editor />
     </div>
   )

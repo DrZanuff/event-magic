@@ -12,11 +12,18 @@ import {
   subTitleAtom,
   titleAtom,
   currentEditingAtom,
+  currentEditingNameAtom,
 } from '@/src/atoms/event'
 import { currentVideoAtom } from '@/src/atoms/editor'
 import { useAtomValue, useAtom } from 'jotai'
 import { useAuth } from '@/src/hooks/useAuth'
 import { LoginButton } from '../../core/LoginButton'
+import { Panel } from '../../core/Panel'
+import { SaveIcon } from '@/src/components/icons/SaveIcon'
+import { DeleteIcon } from '@/src/components/icons/DeleteIcon'
+import { PanelSeparator } from '@/src/components/core/PanelSeparator'
+import buttons from '../../../styles/buttons.module.css'
+import inputTheme from '../../../styles/input.module.css'
 import styles from './EditorRegisteredUserArea-styles.module.css'
 
 export function EditorRegisteredUserArea() {
@@ -33,6 +40,7 @@ export function EditorRegisteredUserArea() {
   const currentVideo = useAtomValue(currentVideoAtom)
 
   const [savedVideoId, setSaveVideoId] = useAtom(currentEditingAtom)
+  const [savedVideoName, setSaveVideoName] = useAtom(currentEditingNameAtom)
 
   const [eventName, setEventName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -73,6 +81,7 @@ export function EditorRegisteredUserArea() {
       if (data.success) {
         alert('Event saved!')
         setSaveVideoId(data.insertedId)
+        setSaveVideoName(data.eventName)
       } else {
         alert('Failed to save event.')
       }
@@ -100,6 +109,7 @@ export function EditorRegisteredUserArea() {
       if (data.success) {
         alert('Event deleted!')
         setSaveVideoId(null)
+        setSaveVideoName(null)
         setEventName('')
       } else {
         alert('Failed to delete event.')
@@ -115,59 +125,70 @@ export function EditorRegisteredUserArea() {
 
   if (!user) {
     return (
-      <div className={styles['no-user']}>
-        <h3>
-          You{`&apos;`}re not registered. Please Sign In or create an account to
-          save a Event
-        </h3>
+      <Panel title="Save & Share">
+        <div className={styles['no-user']}>
+          <span>
+            You are re not registered. Please Sign In or create an account to
+            save a Event
+          </span>
 
-        <LoginButton customMessage="Create an account with Google" />
-      </div>
+          <LoginButton customMessage="Create an account with Google" />
+        </div>
+      </Panel>
     )
   }
 
   return (
-    <div className={styles.container}>
-      <input
-        value={eventName}
-        onChange={(e) => handleUpdateEventName(e.target.value)}
-        disabled={isLoading}></input>
+    <Panel title="Save & Share">
+      <div className={styles.container}>
+        <h3>{savedVideoName}</h3>
+        <input
+          className={inputTheme.input}
+          placeholder="File name..."
+          value={eventName}
+          onChange={(e) => handleUpdateEventName(e.target.value)}
+          disabled={isLoading}></input>
 
-      <button
-        disabled={!eventName.length || isLoading}
-        onClick={handleSaveEvent}>
-        Save
-      </button>
+        <div className={styles.buttonsContainer}>
+          <button
+            className={buttons['button-blue']}
+            disabled={!eventName.length || isLoading}
+            onClick={handleSaveEvent}>
+            <SaveIcon />
+            Save
+          </button>
 
-      {savedVideoId && (
-        <>
-          <div className={styles.shareBox}>
-            <p>View the event:</p>
-            <a
-              href={`/main/view?id=${savedVideoId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.link}>
-              {`${window.location.origin}/main/view?id=${savedVideoId}`}
-            </a>
+          {savedVideoId && (
             <button
-              type="button"
               onClick={() => {
                 navigator.clipboard.writeText(
                   `${window.location.origin}/main/view?id=${savedVideoId}`
                 )
                 alert('Link copied to clipboard!')
               }}
-              className={styles.copyButton}>
+              className={buttons['button-purple']}>
               Copy link
             </button>
-          </div>
+          )}
+        </div>
+      </div>
 
-          <button disabled={isLoading} onClick={handleDeleteEvent}>
-            Delete
-          </button>
-        </>
-      )}
-    </div>
+      <PanelSeparator />
+
+      <div className={styles.container}>
+        {savedVideoId && (
+          <>
+            <button
+              className={buttons['button-pink']}
+              style={{ margin: '1.25em 0 0 auto' }}
+              disabled={isLoading}
+              onClick={handleDeleteEvent}>
+              <DeleteIcon />
+              Delete
+            </button>
+          </>
+        )}
+      </div>
+    </Panel>
   )
 }

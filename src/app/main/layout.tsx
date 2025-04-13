@@ -13,7 +13,6 @@ export default function MainLayout({ children }: { children: ReactNode }) {
           width: '100%',
           alignItems: 'center',
         }}>
-        <div>MainLayout</div>
         {children}
       </div>
     </JotaiProvider>

@@ -3,15 +3,19 @@
   gap: 24px;
   align-items: flex-start;
   padding: 24px;
+  justify-content: space-between;
 }
 
 .Editor-player {
-  flex-shrink: 0;
-  width: 640px;
-  height: 480px;
+  border-radius: var(--btn-border-radius);
+  overflow: hidden;
+  box-shadow: 0 0 20px #0004;
 }
 
 .Editor-controls {
-  flex: 1;
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  max-width: 18.75em;
+  width: 100%;
 }

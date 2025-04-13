@@ -1,0 +1,27 @@
+.PanelContainer {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: var(--btn-border-radius);
+  background-color: var(--background-b2);
+  color: var(--paragraphs);
+  border: 1px solid var(--semi-stroke);
+  overflow: hidden;
+  font-size: 0.875em;
+}
+
+.header {
+  display: flex;
+  color: var(--ui-white);
+  background-color: var(--background-b1);
+  padding: 0.7rem;
+  width: 100%;
+}
+
+.body {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}

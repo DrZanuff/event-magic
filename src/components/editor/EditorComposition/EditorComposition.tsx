@@ -34,7 +34,14 @@ export function EditorComposition() {
       video={video}
       backgroundColor={backgroundColor}
       backgroundOpacity={backgroundOpacity}
-      elements={[title, subTitle, message, location, dateTime, callToAction]}
+      elements={[
+        { ...title, layer: 'Title' },
+        { ...subTitle, layer: 'Subtitle' },
+        { ...message, layer: 'Message' },
+        { ...location, layer: 'Location' },
+        { ...dateTime, layer: 'DateTime' },
+        { ...callToAction, layer: 'Info' },
+      ]}
     />
   )
 }

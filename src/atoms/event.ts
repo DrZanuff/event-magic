@@ -1,4 +1,5 @@
 import { atom } from 'jotai'
+import { LayerElements } from './editor'
 
 export type FadeAnimation =
   | 'None'
@@ -23,6 +24,7 @@ export type TextElement = {
   shadowColor: string
   shadowOffset: number
   shadowBlur: number
+  layer?: LayerElements
 }
 
 export const titleAtom = atom<TextElement>({
@@ -131,3 +133,5 @@ export const backgroundOpacityAtom = atom<number>(0.5)
 export const backgroundColorAtom = atom<string>('#000000')
 
 export const currentEditingAtom = atom<string | null>(null)
+
+export const currentEditingNameAtom = atom<string | null>(null)

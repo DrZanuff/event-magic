@@ -12,6 +12,7 @@ import {
   backgroundOpacityAtom,
   callToActionAtom,
   currentEditingAtom,
+  currentEditingNameAtom,
   dateTimeAtom,
   locationAtom,
   messageAtom,
@@ -26,6 +27,7 @@ export function Dashboard() {
   const [events, setEvents] = useState<EventData[]>([])
 
   const setSaveVideoId = useSetAtom(currentEditingAtom)
+  const setSaveVideoName = useSetAtom(currentEditingNameAtom)
   const setCurrentVideo = useSetAtom(currentVideoAtom)
 
   const setBackgroundColor = useSetAtom(backgroundColorAtom)
@@ -66,6 +68,7 @@ export function Dashboard() {
   const handleSelectVideo = useCallback(
     (eventData: EventData) => {
       setSaveVideoId(eventData._id || null)
+      setSaveVideoName(eventData.eventName)
       setCurrentVideo(Number(eventData.videoId) as AvailableVideosId)
       setBackgroundColor(eventData.backgroundColor)
       backgroundOpacity(eventData.backgroundOpacity)
@@ -108,7 +111,7 @@ export function Dashboard() {
               key={event._id}
               className={styles['item-container']}
               onClick={() => handleSelectVideo(event)}>
-              <p className={styles['title-li']}>{event.title.text}</p>
+              <p className={styles['title-li']}>{event.eventName}</p>
               <EventThumbnail event={event} />
             </li>
           ))}

@@ -1,18 +1,34 @@
 .container {
+  padding: 0.6rem 0.8rem;
   display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+
+  button {
+    width: fit-content;
+  }
 }
 
 .no-user {
   display: flex;
   flex-direction: column;
+  gap: 1.25em;
+  align-items: center;
+  font-size: 0.75em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.buttonsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .shareBox {
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px dashed #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625em;
 }
 
 .link {
@@ -21,18 +37,4 @@
   color: #0070f3;
   word-break: break-all;
   text-decoration: underline;
-}
-
-.copyButton {
-  background-color: #0070f3;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.copyButton:hover {
-  background-color: #005bb5;
 }

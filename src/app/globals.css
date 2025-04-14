@@ -60,3 +60,13 @@ a {
     color-scheme: dark;
   }
 }
+
+.w-color-swatch {
+  --sketch-swatch-border-top: 1px solid #525252 !important;
+}
+
+.w-color-editable-input {
+  --editable-input-label-color: #757575 !important;
+  --editable-input-box-shadow: #616161 0px 0px 0px 1px inset !important;
+  --editable-input-color: #bbb !important;
+}

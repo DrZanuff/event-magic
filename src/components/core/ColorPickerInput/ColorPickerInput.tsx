@@ -33,7 +33,7 @@ export function ColorPickerInput({
         onClick={handleClick}></span>
       {visible && (
         <div className={styles.colorPickerModal}>
-          <Panel>
+          <Panel title={label}>
             <div className={styles.innerContainer}>
               <button
                 style={{
@@ -56,7 +56,7 @@ export function ColorPickerInput({
                 style={{ backgroundColor: 'var(--background-b2)' }}
                 color={value}
                 onChange={(color) => {
-                  onChange(color.hex)
+                  onChange(color.hexa)
                 }}
               />
             </div>

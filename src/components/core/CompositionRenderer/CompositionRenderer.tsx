@@ -54,7 +54,7 @@ export function CompositionRenderer({
           color: el.fontColor,
           backgroundColor: el.backgroundColor,
           borderRadius: el.borderRadius,
-          boxShadow: `${el.shadowOffset}px ${el.shadowOffset}px ${el.shadowBlur}px ${el.shadowColor}`,
+          textShadow: `${el.shadowOffset}px ${el.shadowOffset}px ${el.shadowBlur}px ${el.shadowColor}`,
           padding: '8px 16px',
           whiteSpace: 'pre-wrap',
           maxWidth: '90%',

@@ -60,14 +60,25 @@ export function TextElementEditor({ label, atom }: TextElementEditorProps) {
         />
       </div>
 
-      <label>
+      <ColorPickerInput
+        label="Background"
+        value={textElement.backgroundColor}
+        onChange={(newColor) => handleChange('backgroundColor', newColor)}
+      />
+
+      <ColorPickerInput
+        label="Shadow"
+        value={textElement.shadowColor}
+        onChange={(newColor) => handleChange('shadowColor', newColor)}
+      />
+      {/* <label>
         Background:
         <input
           type="color"
           value={textElement.backgroundColor}
           onChange={(e) => handleChange('backgroundColor', e.target.value)}
         />
-      </label>
+      </label> */}
 
       <label>
         Border Radius:
@@ -102,15 +113,6 @@ export function TextElementEditor({ label, atom }: TextElementEditorProps) {
           type="number"
           value={textElement.y}
           onChange={(e) => handleChange('y', Number(e.target.value))}
-        />
-      </label>
-
-      <label>
-        Shadow Color:
-        <input
-          type="color"
-          value={textElement.shadowColor}
-          onChange={(e) => handleChange('shadowColor', e.target.value)}
         />
       </label>
 

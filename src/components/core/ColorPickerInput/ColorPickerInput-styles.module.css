@@ -5,31 +5,6 @@
   position: relative;
 }
 
-.colorPickerModal {
-  position: fixed;
-  right: 20rem;
-  top: 10rem;
-  z-index: 10;
-
-  .w-color-sketch {
-    background-color: var(--background-b2) !important;
-  }
-
-  [tabindex='0'] {
-    border-radius: 0.3125rem !important;
-  }
-
-  input {
-    border-radius: 0.3125rem !important;
-  }
-}
-
-.innerContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 0.625rem;
-}
-
 .color {
   width: 2rem;
   height: 2rem;

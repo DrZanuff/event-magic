@@ -1,7 +1,12 @@
 'use client'
 
 import { useAtom } from 'jotai'
-import { backgroundColorAtom, backgroundOpacityAtom } from '@/src/atoms/event'
+import {
+  backgroundColorAtom,
+  backgroundOpacityAtom,
+  videoOpacityAtom,
+} from '@/src/atoms/event'
+import { ColorPickerInput } from '@/src/components/core/ColorPickerInput'
 import styles from './BackgroundControls-styles.module.css'
 
 export function BackgroundControls() {
@@ -9,20 +14,22 @@ export function BackgroundControls() {
   const [backgroundOpacity, setBackgroundOpacity] = useAtom(
     backgroundOpacityAtom
   )
+  const [videoOpacity, setVideoOpacity] = useAtom(videoOpacityAtom)
 
   return (
     <div className={styles.container}>
-      <label>
-        Background Color:
-        <input
-          type="color"
-          value={backgroundColor}
-          onChange={(e) => setBackgroundColor(e.target.value)}
-        />
-      </label>
+      <h3>Background</h3>
+
+      <ColorPickerInput
+        label="Color"
+        value={backgroundColor}
+        onChange={(newColor) => setBackgroundColor(newColor)}
+      />
+
+      <h3>Opacity</h3>
 
       <label>
-        Background Opacity:
+        <span>Background</span>
         <input
           type="range"
           min="0"
@@ -32,6 +39,19 @@ export function BackgroundControls() {
           onChange={(e) => setBackgroundOpacity(parseFloat(e.target.value))}
         />
         <span>{(backgroundOpacity * 100).toFixed(0)}%</span>
+      </label>
+
+      <label>
+        <span>Video</span>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={videoOpacity}
+          onChange={(e) => setVideoOpacity(parseFloat(e.target.value))}
+        />
+        <span>{(videoOpacity * 100).toFixed(0)}%</span>
       </label>
     </div>
   )

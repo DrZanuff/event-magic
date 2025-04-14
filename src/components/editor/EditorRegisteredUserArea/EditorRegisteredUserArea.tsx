@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import {
   backgroundColorAtom,
   backgroundOpacityAtom,
+  videoOpacityAtom,
   callToActionAtom,
   dateTimeAtom,
   locationAtom,
@@ -31,6 +32,7 @@ export function EditorRegisteredUserArea() {
   const router = useRouter()
   const backgroundColor = useAtomValue(backgroundColorAtom)
   const backgroundOpacity = useAtomValue(backgroundOpacityAtom)
+  const videoOpacity = useAtomValue(videoOpacityAtom)
   const callToAction = useAtomValue(callToActionAtom)
   const dateTime = useAtomValue(dateTimeAtom)
   const location = useAtomValue(locationAtom)
@@ -56,6 +58,7 @@ export function EditorRegisteredUserArea() {
       userId: user?.uid,
       videoId: currentVideo,
       eventName,
+      videoOpacity,
       backgroundColor,
       backgroundOpacity,
       callToAction,

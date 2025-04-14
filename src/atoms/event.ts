@@ -15,6 +15,7 @@ export type TextElement = {
   fontName: string
   fontColor: string
   backgroundColor: string
+  backGroundEnabled: boolean
   borderRadius: number
   angle: number
   x: number
@@ -24,6 +25,11 @@ export type TextElement = {
   shadowColor: string
   shadowOffset: number
   shadowBlur: number
+  shadowEnabled: boolean
+  shadowFontEnabled: boolean
+  shadowFontColor: string
+  shadowFontOffset: number
+  shadowFontBlur: number
   layer?: LayerElements
 }
 
@@ -32,6 +38,7 @@ export const titleAtom = atom<TextElement>({
   fontSize: 4,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
+  backGroundEnabled: false,
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
@@ -39,9 +46,14 @@ export const titleAtom = atom<TextElement>({
   y: 100,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
+  shadowEnabled: false,
   shadowColor: '#000000',
   shadowOffset: 0,
   shadowBlur: 0,
+  shadowFontEnabled: false,
+  shadowFontColor: '#000000',
+  shadowFontOffset: 0,
+  shadowFontBlur: 0,
 })
 
 export const subTitleAtom = atom<TextElement>({
@@ -49,16 +61,22 @@ export const subTitleAtom = atom<TextElement>({
   fontSize: 3,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
+  backGroundEnabled: false,
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 200,
+  y: 100,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
+  shadowEnabled: false,
   shadowColor: '#000000',
   shadowOffset: 0,
   shadowBlur: 0,
+  shadowFontEnabled: false,
+  shadowFontColor: '#000000',
+  shadowFontOffset: 0,
+  shadowFontBlur: 0,
 })
 
 export const messageAtom = atom<TextElement>({
@@ -66,16 +84,22 @@ export const messageAtom = atom<TextElement>({
   fontSize: 2,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
+  backGroundEnabled: false,
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 280,
+  y: 100,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
+  shadowEnabled: false,
   shadowColor: '#000000',
   shadowOffset: 0,
   shadowBlur: 0,
+  shadowFontEnabled: false,
+  shadowFontColor: '#000000',
+  shadowFontOffset: 0,
+  shadowFontBlur: 0,
 })
 
 export const locationAtom = atom<TextElement>({
@@ -83,16 +107,22 @@ export const locationAtom = atom<TextElement>({
   fontSize: 2,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
+  backGroundEnabled: false,
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 310,
+  y: 100,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
-  shadowColor: 'transparent',
+  shadowEnabled: false,
+  shadowColor: '#000000',
   shadowOffset: 0,
   shadowBlur: 0,
+  shadowFontEnabled: false,
+  shadowFontColor: '#000000',
+  shadowFontOffset: 0,
+  shadowFontBlur: 0,
 })
 
 export const dateTimeAtom = atom<TextElement>({
@@ -100,16 +130,22 @@ export const dateTimeAtom = atom<TextElement>({
   fontSize: 2,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
+  backGroundEnabled: false,
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 340,
+  y: 100,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
-  shadowColor: 'transparent',
+  shadowEnabled: false,
+  shadowColor: '#000000',
   shadowOffset: 0,
   shadowBlur: 0,
+  shadowFontEnabled: false,
+  shadowFontColor: '#000000',
+  shadowFontOffset: 0,
+  shadowFontBlur: 0,
 })
 
 export const callToActionAtom = atom<TextElement>({
@@ -117,17 +153,25 @@ export const callToActionAtom = atom<TextElement>({
   fontSize: 1,
   fontName: 'Roboto',
   fontColor: '#FFFFFF',
+  backGroundEnabled: false,
   backgroundColor: 'transparent',
   borderRadius: 0,
   angle: 0,
   x: 0,
-  y: 370,
+  y: 100,
   fadeInAnimation: 'None',
   fadeOutAnimation: 'None',
-  shadowColor: 'transparent',
+  shadowEnabled: false,
+  shadowColor: '#000000',
   shadowOffset: 0,
   shadowBlur: 0,
+  shadowFontEnabled: false,
+  shadowFontColor: '#000000',
+  shadowFontOffset: 0,
+  shadowFontBlur: 0,
 })
+
+export const videoOpacityAtom = atom<number>(1)
 
 export const backgroundOpacityAtom = atom<number>(0.5)
 export const backgroundColorAtom = atom<string>('#000000')

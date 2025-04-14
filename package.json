@@ -30,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "plop": "^4.0.1",
+    "postcss-preset-env": "^10.1.5",
     "typescript": "^5"
   }
 }

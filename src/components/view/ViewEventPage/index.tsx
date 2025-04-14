@@ -1,0 +1,1 @@
+export { ViewEventPage } from './ViewEventPage'

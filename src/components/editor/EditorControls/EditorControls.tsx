@@ -17,6 +17,7 @@ import { TextElementEditor } from '@/src/components/editor/TextElementEditor'
 import { BackgroundControls } from '@/src/components/editor/BackgroundControls'
 import { Panel } from '@/src/components/core/Panel'
 import { PanelSeparator } from '@/src/components/core/PanelSeparator'
+import { ColorPickerModal } from '@/src/components/core/ColorPickerModal'
 import styles from './EditorControls-styles.module.css'
 
 const textEditors = [
@@ -48,35 +49,45 @@ export function EditorControls() {
   }
 
   return (
-    <Panel title="Settings">
-      <div className={styles.container}>
-        <div className={styles.videoSelector}>
-          <button onClick={handlePrevious}>←</button>
-          <div className={styles.videoDescription}>
-            <h2>Video {currentVideo}</h2>
-            <p>{video.description}</p>
+    <>
+      <Panel title="Settings">
+        <div className={styles.scroll}>
+          <div className={styles.container}>
+            <div className={styles.videoSelector}>
+              <button onClick={handlePrevious}>←</button>
+              <div className={styles.videoDescription}>
+                <h2>Video {currentVideo}</h2>
+                <p>{video.description}</p>
+              </div>
+              <button onClick={handleNext}>→</button>
+            </div>
           </div>
-          <button onClick={handleNext}>→</button>
+
+          <PanelSeparator />
+
+          <div className={styles.container}>
+            <BackgroundControls />
+          </div>
+
+          <PanelSeparator />
+
+          <div className={styles.container}>
+            <div className={styles.textEditorsContainer}>
+              {textEditors
+                .filter(
+                  ({ element }) => element === currentSelectedLayerElement
+                )
+                .map(({ element, label, atom }) => (
+                  <TextElementEditor key={element} label={label} atom={atom} />
+                ))}
+            </div>
+          </div>
+
+          <PanelSeparator />
         </div>
-      </div>
+      </Panel>
 
-      <PanelSeparator />
-
-      <div className={styles.container}>
-        <div className={styles.textEditorsContainer}>
-          {textEditors
-            .filter(({ element }) => element === currentSelectedLayerElement)
-            .map(({ element, label, atom }) => (
-              <TextElementEditor key={element} label={label} atom={atom} />
-            ))}
-        </div>
-      </div>
-
-      <PanelSeparator />
-
-      <div className={styles.container}>
-        <BackgroundControls />
-      </div>
-    </Panel>
+      <ColorPickerModal />
+    </>
   )
 }

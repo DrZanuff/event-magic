@@ -6,6 +6,7 @@ import type { TextElementEditorProps } from '@/src/components/editor/TextElement
 import { ColorPickerInput } from '@/src/components/core/ColorPickerInput'
 import inputStyle from '../../../../styles/input.module.css'
 import styles from '../TextElementEditor-styles.module.css'
+import { Switch } from '@/src/components/core/Switch'
 
 export function BoxEditor({ label, atom }: TextElementEditorProps) {
   const [textElement, setTextElement] = useAtom(atom)
@@ -21,19 +22,17 @@ export function BoxEditor({ label, atom }: TextElementEditorProps) {
     <>
       <h4>{label}</h4>
 
-      <ColorPickerInput
-        label="Background"
-        value={textElement.backgroundColor}
-        onChange={(newColor) => handleChange('backgroundColor', newColor)}
+      <Switch
+        label="Enabled"
+        onChange={(status) => handleChange('backGroundEnabled', status)}
       />
-
-      <ColorPickerInput
-        label="Shadow"
-        value={textElement.shadowColor}
-        onChange={(newColor) => handleChange('shadowColor', newColor)}
-      />
-
       <div className={styles.rowCompact}>
+        <ColorPickerInput
+          label="Background"
+          value={textElement.backgroundColor}
+          onChange={(newColor) => handleChange('backgroundColor', newColor)}
+        />
+
         <label>
           <span>Radius</span>
           <input
@@ -48,6 +47,19 @@ export function BoxEditor({ label, atom }: TextElementEditorProps) {
       </div>
 
       <h4>Shadow</h4>
+
+      <div className={styles.rowCompact}>
+        <Switch
+          label="Enabled"
+          onChange={(status) => handleChange('shadowEnabled', status)}
+        />
+
+        <ColorPickerInput
+          label="Color"
+          value={textElement.shadowColor}
+          onChange={(newColor) => handleChange('shadowColor', newColor)}
+        />
+      </div>
 
       <div className={styles.rowCompact}>
         <label>

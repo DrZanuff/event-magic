@@ -4,6 +4,7 @@ import { useAtom } from 'jotai'
 import { TextElement } from '@/src/atoms/event'
 import type { TextElementEditorProps } from '@/src/components/editor/TextElementEditor/TextElementEditor.types'
 import { ColorPickerInput } from '@/src/components/core/ColorPickerInput'
+import { Switch } from '@/src/components/core/Switch'
 import inputStyle from '../../../../styles/input.module.css'
 import styles from '../TextElementEditor-styles.module.css'
 
@@ -47,6 +48,45 @@ export function TypographyEditor({ label, atom }: TextElementEditorProps) {
           value={textElement.fontColor}
           onChange={(newColor) => handleChange('fontColor', newColor)}
         />
+      </div>
+
+      <h4>Shadow</h4>
+
+      <div className={styles.rowCompact}>
+        <Switch
+          label="Enabled"
+          onChange={(status) => handleChange('shadowEnabled', status)}
+        />
+
+        <ColorPickerInput
+          label="Color"
+          value={textElement.shadowFontColor}
+          onChange={(newColor) => handleChange('shadowFontColor', newColor)}
+        />
+      </div>
+
+      <div className={styles.rowCompact}>
+        <label>
+          <span>Offset</span>
+          <input
+            className={inputStyle.input}
+            type="number"
+            value={textElement.shadowFontOffset}
+            onChange={(e) =>
+              handleChange('shadowFontOffset', Number(e.target.value))
+            }
+          />
+        </label>
+
+        <label>
+          <span>Blur</span>
+          <input
+            className={inputStyle.input}
+            type="number"
+            value={textElement.shadowBlur}
+            onChange={(e) => handleChange('shadowBlur', Number(e.target.value))}
+          />
+        </label>
       </div>
     </>
   )

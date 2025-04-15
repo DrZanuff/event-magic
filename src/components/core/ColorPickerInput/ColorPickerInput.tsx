@@ -12,21 +12,36 @@ export function ColorPickerInput({
 }: ColorPickerInputProps) {
   const openColorModal = useSetAtom(colorPickerModalAtom)
 
+  const handleHexChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const hex = e.target.value
+    if (/^#([0-9A-Fa-f]{3}){1,2}$/.test(hex)) {
+      onChange(hex)
+    }
+  }
+
   return (
     <div className={styles.ColorPickerInputContainer}>
-      <span>{label}</span>
-      <span
-        className={styles.color}
-        style={{ backgroundColor: value }}
-        onClick={() =>
-          openColorModal({
-            isOpen: true,
-            label,
-            value,
-            onChange,
-          })
-        }
-      />
+      <div className={styles.previewAndInput}>
+        <span
+          className={styles.color}
+          style={{ backgroundColor: value }}
+          onClick={() =>
+            openColorModal({
+              isOpen: true,
+              label,
+              value,
+              onChange,
+            })
+          }
+        />
+        <input
+          type="text"
+          value={value}
+          onChange={handleHexChange}
+          className={styles.hexInput}
+          maxLength={7}
+        />
+      </div>
     </div>
   )
 }

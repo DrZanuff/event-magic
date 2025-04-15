@@ -84,6 +84,7 @@ export function CompositionRenderer({
             inset: 0,
             zIndex: 0,
             width: '100%',
+            height: 'auto',
           }}
         />
 

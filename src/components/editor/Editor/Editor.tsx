@@ -24,6 +24,7 @@ export function Editor() {
         <Player
           component={EditorComposition}
           durationInFrames={video.duration * 30}
+          style={{ width: '100%' }}
           compositionWidth={1200}
           compositionHeight={675}
           fps={30}

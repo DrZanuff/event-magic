@@ -20,6 +20,16 @@ export function PositionEditor({ atom }: TextElementEditorProps) {
     <>
       <div className={styles.rowCompact}>
         <label>
+          <span>X</span>
+          <input
+            className={inputStyle.input}
+            type="number"
+            value={textElement.x}
+            onChange={(e) => handleChange('x', Number(e.target.value))}
+          />
+        </label>
+
+        <label>
           <span>Angle</span>
           <input
             className={inputStyle.input}
@@ -31,16 +41,6 @@ export function PositionEditor({ atom }: TextElementEditorProps) {
       </div>
 
       <div className={styles.rowCompact}>
-        <label>
-          <span>X</span>
-          <input
-            className={inputStyle.input}
-            type="number"
-            value={textElement.x}
-            onChange={(e) => handleChange('x', Number(e.target.value))}
-          />
-        </label>
-
         <label>
           <span>Y</span>
           <input

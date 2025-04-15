@@ -1,6 +1,6 @@
 .separator {
   display: flex;
   width: 100%;
-  min-height: 2px;
+  min-height: 1px;
   background-color: var(--semi-stroke);
 }

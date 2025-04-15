@@ -13,7 +13,6 @@ export function TextElementEditor({ label, atom }: TextElementEditorProps) {
     <>
       <div className={styles.container}>
         <h3>{label}</h3>
-
         <TypographyEditor atom={atom} label="Typography" />
       </div>
       <PanelSeparator />

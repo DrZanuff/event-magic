@@ -18,6 +18,7 @@ import { BackgroundControls } from '@/src/components/editor/BackgroundControls'
 import { Panel } from '@/src/components/core/Panel'
 import { PanelSeparator } from '@/src/components/core/PanelSeparator'
 import { ColorPickerModal } from '@/src/components/core/ColorPickerModal'
+import { VideoSelector } from '@/src/components/editor/VideoSelector'
 import styles from './EditorControls-styles.module.css'
 
 const textEditors = [
@@ -52,16 +53,12 @@ export function EditorControls() {
     <>
       <Panel title="Settings">
         <div className={styles.scroll}>
-          <div className={styles.container}>
-            <div className={styles.videoSelector}>
-              <button onClick={handlePrevious}>←</button>
-              <div className={styles.videoDescription}>
-                <h2>Video {currentVideo}</h2>
-                <p>{video.description}</p>
-              </div>
-              <button onClick={handleNext}>→</button>
-            </div>
-          </div>
+          <VideoSelector
+            videoId={currentVideo}
+            video={video}
+            onPrevious={handlePrevious}
+            onNext={handleNext}
+          />
 
           <PanelSeparator />
 

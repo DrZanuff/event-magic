@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     const result = await events.insertOne(body)
 
-    return NextResponse.json({ success: true, insertedId: result.insertedId })
+    return NextResponse.json({ success: true, id: result.insertedId })
   } catch (error) {
     console.error(error)
     return NextResponse.json(

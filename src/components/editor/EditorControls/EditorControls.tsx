@@ -19,6 +19,7 @@ import { Panel } from '@/src/components/core/Panel'
 import { PanelSeparator } from '@/src/components/core/PanelSeparator'
 import { ColorPickerModal } from '@/src/components/core/ColorPickerModal'
 import { VideoSelector } from '@/src/components/editor/VideoSelector'
+// import { AnimationControls } from '@/src/components/editor/AnimationControls'
 import styles from './EditorControls-styles.module.css'
 
 const textEditors = [
@@ -62,9 +63,15 @@ export function EditorControls() {
 
           <PanelSeparator />
 
-          <div className={styles.container}>
+          <div className={styles.container} style={{ marginBottom: '0.5rem' }}>
             <BackgroundControls />
           </div>
+
+          <PanelSeparator />
+
+          {/* <div className={styles.container} style={{ marginBottom: '0.5rem' }}>
+            <AnimationControls />
+          </div> */}
 
           <PanelSeparator />
 

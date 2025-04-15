@@ -17,6 +17,7 @@ type CompositionRendererProps = {
   video: VideoMetadata
   backgroundColor: string
   backgroundOpacity: number
+  videoOpacity: number
   elements: TextElement[]
 }
 
@@ -24,15 +25,16 @@ export function CompositionRenderer({
   video,
   backgroundColor,
   backgroundOpacity,
+  videoOpacity,
   elements,
 }: CompositionRendererProps) {
   const currentSelectedElement = useAtomValue(currentSelectedLayerElementAtom)
 
   const frame = useCurrentFrame()
 
-  const translateY = interpolate(frame, [0, 30], [-300, -100], {
-    extrapolateRight: 'clamp',
-  })
+  // const translateY = interpolate(frame, [0, 30], [-300, -100], {
+  //   extrapolateRight: 'clamp',
+  // })
 
   const opacity = interpolate(frame, [0, 30], [0, 1], {
     extrapolateRight: 'clamp',
@@ -46,16 +48,25 @@ export function CompositionRenderer({
         key={index}
         style={{
           position: 'absolute',
-          top: el.y,
-          left: el.x,
+          top: `${el.y}em`,
+          left: `${el.x}em`,
+          padding: `${el.paddingY}em ${el.paddingX}em`,
           transform: `rotate(${el.angle}deg)`,
           fontSize: `${el.fontSize}em`,
           fontFamily: el.fontName,
+          ...(el.shadowEnabled
+            ? {
+                boxShadow: `${el.shadowOffset}em ${el.shadowOffset}em ${el.shadowBlur}em ${el.shadowColor}`,
+              }
+            : {}),
           color: el.fontColor,
-          backgroundColor: el.backgroundColor,
+          backgroundColor: el.backGroundEnabled ? el.backgroundColor : 'unset',
           borderRadius: el.borderRadius,
-          textShadow: `${el.shadowOffset}px ${el.shadowOffset}px ${el.shadowBlur}px ${el.shadowColor}`,
-          padding: '8px 16px',
+          ...(el.shadowFontEnabled
+            ? {
+                textShadow: `${el.shadowFontOffset}em ${el.shadowFontOffset}em ${el.shadowFontBlur}em ${el.shadowFontColor}`,
+              }
+            : {}),
           whiteSpace: 'pre-wrap',
           maxWidth: '90%',
           border: isSelected ? '2px dotted red' : 'none',
@@ -67,7 +78,9 @@ export function CompositionRenderer({
 
   return (
     <Sequence from={0} durationInFrames={video.duration * 30}>
-      <AbsoluteFill style={{ backgroundColor }}>
+      <AbsoluteFill
+      // style={{ backgroundColor }}
+      >
         <div
           style={{
             backgroundColor,
@@ -81,6 +94,7 @@ export function CompositionRenderer({
           src={staticFile(video.url)}
           style={{
             position: 'absolute',
+            opacity: videoOpacity,
             inset: 0,
             zIndex: 0,
             width: '100%',
@@ -92,7 +106,7 @@ export function CompositionRenderer({
           style={{
             justifyContent: 'center',
             alignItems: 'center',
-            transform: `translateY(${translateY}px)`,
+            // transform: `translateY(${translateY}px)`,
             opacity,
           }}>
           {elements.map(renderTextElement)}

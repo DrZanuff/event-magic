@@ -54,8 +54,9 @@ export function TypographyEditor({ label, atom }: TextElementEditorProps) {
 
       <div className={styles.rowCompact}>
         <Switch
+          value={textElement.shadowFontEnabled}
           label="Enabled"
-          onChange={(status) => handleChange('shadowEnabled', status)}
+          onChange={(status) => handleChange('shadowFontEnabled', status)}
         />
 
         <ColorPickerInput
@@ -71,6 +72,7 @@ export function TypographyEditor({ label, atom }: TextElementEditorProps) {
           <input
             className={inputStyle.input}
             type="number"
+            step="0.1"
             value={textElement.shadowFontOffset}
             onChange={(e) =>
               handleChange('shadowFontOffset', Number(e.target.value))
@@ -83,8 +85,11 @@ export function TypographyEditor({ label, atom }: TextElementEditorProps) {
           <input
             className={inputStyle.input}
             type="number"
-            value={textElement.shadowBlur}
-            onChange={(e) => handleChange('shadowBlur', Number(e.target.value))}
+            step="0.1"
+            value={textElement.shadowFontBlur}
+            onChange={(e) =>
+              handleChange('shadowFontBlur', Number(e.target.value))
+            }
           />
         </label>
       </div>

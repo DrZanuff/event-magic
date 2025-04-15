@@ -106,9 +106,9 @@ export function Dashboard() {
         <p>No events found. Create one to get started!</p>
       ) : (
         <ul className={styles['item-list']}>
-          {events.map((event) => (
+          {events.map((event, index) => (
             <li
-              key={event._id}
+              key={`${event._id}-${index}`}
               className={styles['item-container']}
               onClick={() => handleSelectVideo(event)}>
               <p className={styles['title-li']}>{event.eventName}</p>

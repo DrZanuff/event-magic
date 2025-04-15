@@ -1,10 +1,10 @@
 'use client'
 
 import { useAtom } from 'jotai'
-import type { TextElement, FadeAnimation } from '@/src/atoms/event'
-import type { TextElementEditorProps } from '@/src/components/editor/TextElementEditor/TextElementEditor.types'
-import inputStyle from '../../../../styles/input.module.css'
-import styles from '../TextElementEditor-styles.module.css'
+import type { FadeAnimation } from '@/src/atoms/event'
+import { fadeInAnimationAtom, fadeOutAnimationAtom } from '@/src/atoms/event'
+import inputStyle from '../../../styles/input.module.css'
+import styles from './AnimationControls.module.css'
 
 const fadeAnimations: FadeAnimation[] = [
   'None',
@@ -15,28 +15,22 @@ const fadeAnimations: FadeAnimation[] = [
   'SlideRight',
 ]
 
-export function AnimationEditor({ label, atom }: TextElementEditorProps) {
-  const [textElement, setTextElement] = useAtom(atom)
-
-  const handleChange = (key: keyof TextElement, value: any) => {
-    setTextElement((prev) => ({
-      ...prev,
-      [key]: value,
-    }))
-  }
+export function AnimationControls() {
+  const [fadeInAnimation, setFadeInAnimation] = useAtom(fadeInAnimationAtom)
+  const [fadeOutAnimation, setFadeOutAnimation] = useAtom(fadeOutAnimationAtom)
 
   return (
-    <>
-      <h4>{label}</h4>
+    <div className={styles.container}>
+      <h4>Animation</h4>
 
       <div className={styles.rowInput}>
         <label>
           <span>In</span>
           <select
             className={inputStyle.input}
-            value={textElement.fadeInAnimation}
+            value={fadeInAnimation}
             onChange={(e) =>
-              handleChange('fadeInAnimation', e.target.value as FadeAnimation)
+              setFadeInAnimation(e.target.value as FadeAnimation)
             }>
             {fadeAnimations.map((anim) => (
               <option key={anim} value={anim}>
@@ -53,9 +47,9 @@ export function AnimationEditor({ label, atom }: TextElementEditorProps) {
 
           <select
             className={inputStyle.input}
-            value={textElement.fadeOutAnimation}
+            value={fadeOutAnimation}
             onChange={(e) =>
-              handleChange('fadeOutAnimation', e.target.value as FadeAnimation)
+              setFadeOutAnimation(e.target.value as FadeAnimation)
             }>
             {fadeAnimations.map((anim) => (
               <option key={anim} value={anim}>
@@ -65,6 +59,6 @@ export function AnimationEditor({ label, atom }: TextElementEditorProps) {
           </select>
         </label>
       </div>
-    </>
+    </div>
   )
 }

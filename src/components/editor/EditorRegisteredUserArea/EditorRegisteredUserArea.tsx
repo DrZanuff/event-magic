@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   backgroundColorAtom,
@@ -47,6 +47,14 @@ export function EditorRegisteredUserArea() {
   const [eventName, setEventName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
+  useEffect(() => {
+    if (!savedVideoName) {
+      return
+    }
+
+    setEventName(savedVideoName)
+  }, [savedVideoName])
+
   const handleUpdateEventName = (value: string) => {
     setEventName(value)
   }
@@ -83,8 +91,8 @@ export function EditorRegisteredUserArea() {
       const data = await res.json()
       if (data.success) {
         alert('Event saved!')
-        setSaveVideoId(data.insertedId)
-        setSaveVideoName(data.eventName)
+        setSaveVideoId(data.id)
+        setSaveVideoName(eventName)
       } else {
         alert('Failed to save event.')
       }
@@ -112,7 +120,7 @@ export function EditorRegisteredUserArea() {
       if (data.success) {
         alert('Event deleted!')
         setSaveVideoId(null)
-        setSaveVideoName(null)
+        setSaveVideoName('')
         setEventName('')
       } else {
         alert('Failed to delete event.')

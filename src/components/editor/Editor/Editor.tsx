@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect } from 'react'
+import { useResetTextElements } from '@/src/hooks/useResetTextElements'
 import { Player } from '@remotion/player'
 import { EditorComposition } from '@/src/components/editor/EditorComposition/EditorComposition'
 import { EditorControls } from '@/src/components/editor/EditorControls/EditorControls'
@@ -13,6 +15,13 @@ import styles from './Editor-styles.module.css'
 export function Editor() {
   const currentVideo = useAtomValue(currentVideoAtom)
   const video = availableVideos[currentVideo]
+  const reset = useResetTextElements()
+
+  useEffect(() => {
+    return () => {
+      reset()
+    }
+  }, [])
 
   return (
     <div className={styles['Editor-container']}>

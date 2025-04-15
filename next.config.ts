@@ -3,6 +3,7 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   /* config options here */
   // lh3.googleusercontent.com
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {

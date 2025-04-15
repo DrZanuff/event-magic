@@ -30,7 +30,10 @@ export async function PUT(
       { $set: body }
     )
 
-    return NextResponse.json({ success: result.modifiedCount === 1 })
+    return NextResponse.json({
+      success: result.modifiedCount === 1,
+      id,
+    })
   } catch (err) {
     console.error('Update error:', err)
     return NextResponse.json(

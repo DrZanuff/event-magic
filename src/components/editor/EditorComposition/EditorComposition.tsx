@@ -5,6 +5,7 @@ import { currentVideoAtom } from '@/src/atoms/editor'
 import {
   backgroundColorAtom,
   backgroundOpacityAtom,
+  videoOpacityAtom,
   callToActionAtom,
   dateTimeAtom,
   locationAtom,
@@ -21,6 +22,7 @@ export function EditorComposition() {
 
   const backgroundColor = useAtomValue(backgroundColorAtom)
   const backgroundOpacity = useAtomValue(backgroundOpacityAtom)
+  const videoOpacity = useAtomValue(videoOpacityAtom)
 
   const title = useAtomValue(titleAtom)
   const subTitle = useAtomValue(subTitleAtom)
@@ -34,6 +36,7 @@ export function EditorComposition() {
       video={video}
       backgroundColor={backgroundColor}
       backgroundOpacity={backgroundOpacity}
+      videoOpacity={videoOpacity}
       elements={[
         { ...title, layer: 'Title' },
         { ...subTitle, layer: 'Subtitle' },

@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 0 0.8rem;
+
+  h4 {
+    width: 100%;
+    padding-top: 0.625em;
+  }
+}
+
+.rowInput {
+  display: flex;
+  width: 100%;
+  gap: 1.25em;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.625rem;
+
+  span {
+    display: inline-flex;
+    flex: 0.8;
+    width: 1.2rem;
+    margin-right: 1.25rem;
+  }
+
+  input {
+    flex: 2;
+  }
+}

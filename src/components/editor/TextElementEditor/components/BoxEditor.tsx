@@ -23,6 +23,7 @@ export function BoxEditor({ label, atom }: TextElementEditorProps) {
       <h4>{label}</h4>
 
       <Switch
+        value={textElement.backGroundEnabled}
         label="Enabled"
         onChange={(status) => handleChange('backGroundEnabled', status)}
       />
@@ -38,6 +39,7 @@ export function BoxEditor({ label, atom }: TextElementEditorProps) {
           <input
             className={inputStyle.input}
             type="number"
+            step="0.1"
             value={textElement.borderRadius}
             onChange={(e) =>
               handleChange('borderRadius', Number(e.target.value))
@@ -46,10 +48,39 @@ export function BoxEditor({ label, atom }: TextElementEditorProps) {
         </label>
       </div>
 
+      <h4>Padding</h4>
+
+      <div className={styles.rowCompact}>
+        <label>
+          <span>X</span>
+          <input
+            className={inputStyle.input}
+            type="number"
+            step="0.1"
+            value={textElement.paddingX}
+            onChange={(e) => handleChange('paddingX', Number(e.target.value))}
+          />
+        </label>
+      </div>
+
+      <div className={styles.rowCompact}>
+        <label>
+          <span>Y</span>
+          <input
+            className={inputStyle.input}
+            type="number"
+            step="0.1"
+            value={textElement.paddingY}
+            onChange={(e) => handleChange('paddingY', Number(e.target.value))}
+          />
+        </label>
+      </div>
+
       <h4>Shadow</h4>
 
       <div className={styles.rowCompact}>
         <Switch
+          value={textElement.shadowEnabled}
           label="Enabled"
           onChange={(status) => handleChange('shadowEnabled', status)}
         />
@@ -67,6 +98,7 @@ export function BoxEditor({ label, atom }: TextElementEditorProps) {
           <input
             className={inputStyle.input}
             type="number"
+            step="0.1"
             value={textElement.shadowOffset}
             onChange={(e) =>
               handleChange('shadowOffset', Number(e.target.value))

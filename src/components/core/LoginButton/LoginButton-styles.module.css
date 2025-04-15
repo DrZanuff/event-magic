@@ -2,14 +2,14 @@
   display: flex;
 
   button {
-    height: 48px;
+    height: 32px;
     min-width: 100px;
   }
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid var(--ui-primary600);
 }

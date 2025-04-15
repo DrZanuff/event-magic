@@ -5,14 +5,30 @@
 
 .item-list {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 0.9375rem;
+  gap: 1.25rem;
+  padding: 2.5rem;
 }
 
 .item-container {
-  font-size: 0.5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  background-color: var(--background-b1);
+  gap: 0.9375rem;
+  padding: 0.625rem;
+  width: fit-content;
+
+  cursor: pointer;
+  transition: filter 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
 }
 
 .title-li {
   font-size: 20px;
+  text-align: center;
 }

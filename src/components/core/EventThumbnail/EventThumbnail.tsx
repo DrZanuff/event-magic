@@ -18,7 +18,7 @@ export function EventThumbnail({
   event,
   width = 256,
   height = 144,
-  frame = 30,
+  frame = 50,
 }: EventThumbnailProps) {
   const video = availableVideos[Number(event.videoId) as AvailableVideosId]
 
@@ -35,6 +35,7 @@ export function EventThumbnail({
           video,
           backgroundColor: event.backgroundColor,
           backgroundOpacity: event.backgroundOpacity,
+          videoOpacity: event.videoOpacity,
           elements: [
             event.title,
             event.subTitle,

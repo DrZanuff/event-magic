@@ -24,6 +24,7 @@ export function PositionEditor({ atom }: TextElementEditorProps) {
           <input
             className={inputStyle.input}
             type="number"
+            step="0.1"
             value={textElement.x}
             onChange={(e) => handleChange('x', Number(e.target.value))}
           />
@@ -46,6 +47,7 @@ export function PositionEditor({ atom }: TextElementEditorProps) {
           <input
             className={inputStyle.input}
             type="number"
+            step="0.1"
             value={textElement.y}
             onChange={(e) => handleChange('y', Number(e.target.value))}
           />

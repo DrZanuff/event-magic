@@ -7,6 +7,7 @@ export type EventData = {
   eventName: string
   backgroundColor: string
   backgroundOpacity: number
+  videoOpacity: number
   createdAt: string
 
   callToAction: TextElement

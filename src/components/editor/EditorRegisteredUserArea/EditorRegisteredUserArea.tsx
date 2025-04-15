@@ -26,6 +26,7 @@ import { PanelSeparator } from '@/src/components/core/PanelSeparator'
 import buttons from '../../../styles/buttons.module.css'
 import inputTheme from '../../../styles/input.module.css'
 import styles from './EditorRegisteredUserArea-styles.module.css'
+import toast from 'react-hot-toast'
 
 export function EditorRegisteredUserArea() {
   const { user } = useAuth()
@@ -90,15 +91,16 @@ export function EditorRegisteredUserArea() {
 
       const data = await res.json()
       if (data.success) {
-        alert('Event saved!')
+        toast.success('Event saved!')
         setSaveVideoId(data.id)
         setSaveVideoName(eventName)
       } else {
-        alert('Failed to save event.')
+        console.log('Save fail:', data)
+        toast.error('Failed to save event.')
       }
     } catch (err) {
       console.error('Save error:', err)
-      alert('Unexpected error occurred')
+      toast.error('Unexpected error occurred')
     } finally {
       setIsLoading(false)
     }
@@ -118,16 +120,17 @@ export function EditorRegisteredUserArea() {
 
       const data = await res.json()
       if (data.success) {
-        alert('Event deleted!')
+        toast.success('Event deleted!')
         setSaveVideoId(null)
         setSaveVideoName('')
         setEventName('')
       } else {
-        alert('Failed to delete event.')
+        console.log('Delete fail:', data)
+        toast.error('Failed to delete event.')
       }
     } catch (err) {
       console.error('Delete error:', err)
-      alert('Unexpected error occurred while deleting')
+      toast.error('Unexpected error occurred while deleting')
     } finally {
       setIsLoading(false)
       router.push('/main/dashboard')
@@ -175,7 +178,7 @@ export function EditorRegisteredUserArea() {
                 navigator.clipboard.writeText(
                   `${window.location.origin}/main/view?id=${savedVideoId}`
                 )
-                alert('Link copied to clipboard!')
+                toast.success('Link copied to clipboard!')
               }}
               className={buttons['button-purple']}>
               Copy link

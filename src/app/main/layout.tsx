@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
+import { Toaster } from 'react-hot-toast'
 import { Provider as JotaiProvider } from 'jotai'
 
 export default function MainLayout({ children }: { children: ReactNode }) {
@@ -15,6 +16,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
         }}>
         {children}
       </div>
+      <Toaster />
     </JotaiProvider>
   )
 }

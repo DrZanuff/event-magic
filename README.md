@@ -1,4 +1,4 @@
-# ✨ Event Magic — Animated Video Invitations
+# Event Magic ✨ — Animated Video Invitations
 
 **EventMagic** is a fullstack web app that allows users to create animated video invitations for events like weddings, birthdays, and parties. Customize the invitation with text, themes, background video, and animated transitions — and generate a downloadable video using Remotion.
 

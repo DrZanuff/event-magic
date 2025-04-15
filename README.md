@@ -4,6 +4,11 @@
 
 Authenticated users can save, edit, and manage their invitations via their personal dashboard.
 
+https://event-magic-three.vercel.app/
+
+
+![image](https://github.com/user-attachments/assets/64c6959a-ff33-4016-a56e-af5c955eb9ba)
+
 ---
 
 ## 🚀 Tech Stack
